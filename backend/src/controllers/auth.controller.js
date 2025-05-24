@@ -54,8 +54,7 @@ export async function signup(req, res) {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true, // prevent XSS attacks
       sameSite: "none", // allow cross-site cookie
-      secure: true, // required for SameSite=None
-      domain: "*" // allow on all domains
+      secure: true // required for SameSite=None
     });
 
     res.status(201).json({ success: true, user: newUser });
