@@ -55,7 +55,7 @@ export async function signup(req, res) {
       httpOnly: true, // prevent XSS attacks
       sameSite: "none", // allow cross-site cookie
       secure: true, // required for SameSite=None
-      domain: process.env.NODE_ENV === "production" ? ".onrender.com" : undefined,
+      domain: "*" // allow on all domains
     });
 
     res.status(201).json({ success: true, user: newUser });
@@ -88,7 +88,7 @@ export async function login(req, res) {
       httpOnly: true, // prevent XSS attacks
       sameSite: "none", // allow cross-site cookie
       secure: true, // required for SameSite=None
-      domain: process.env.NODE_ENV === "production" ? ".onrender.com" : undefined,
+      domain: "*",
     });
 
     res.status(200).json({ success: true, user });
