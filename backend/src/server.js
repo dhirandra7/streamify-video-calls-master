@@ -19,11 +19,16 @@ app.use(
   cors({
     origin: "https://streamify-video-calls-master.vercel.app",
     credentials: true, // allow frontend to send cookies
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
 
 app.use(express.json());
 app.use(cookieParser());
+
+// Handle preflight requests
+app.options('*', cors());
 
 app.get("/", (req, res) => {
   res.send("API is running...");
