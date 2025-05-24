@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://streamify-video-calls-master.vercel.app",
     credentials: true, // allow frontend to send cookies
   })
 );
